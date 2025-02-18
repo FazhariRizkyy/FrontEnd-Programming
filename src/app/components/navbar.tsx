@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, ChevronDown, UserCircle } from 'lucide-react';
+import {ChevronDown, UserCircle } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -10,17 +10,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md p-4 flex items-center justify-between">
       {/* Logo */}
-      <div className="text-2xl font-bold text-gray-800">Tiketux</div>
-      
-      {/* Search Bar */}
-      <div className="relative w-1/3">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="w-full p-2 pl-10 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <Search className="absolute left-3 top-2.5 text-gray-500" size={20} />
-      </div>
+      <div className="text-2xl font-bold text-gray-800">HotelKu</div>
       
       {/* Navigation Menu */}
       <div className="flex items-center gap-6">
