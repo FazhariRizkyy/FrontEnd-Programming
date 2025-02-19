@@ -8,6 +8,9 @@ import { FaMoneyBillAlt } from "react-icons/fa";
 import { Card, CardContent } from "./components/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { PieChart, Pie, Cell } from "recharts";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
 import Image from "next/image";
 
 const data = [
@@ -22,6 +25,15 @@ const pieData = [
   { name: "VIP", value: 400 },
   { name: "Regular", value: 300 },
   { name: "Economy", value: 200 },
+];
+
+const images = [
+  "/images/banner-1.jpg",
+  "/images/banner-2.jpg",
+  "/images/banner-3.jpg",
+  "/images/banner-4.jpg",
+  "/images/banner-5.jpg",
+  "/images/banner-6.jpg", // Tambahkan lebih banyak gambar jika mau
 ];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28"]; // Tambahkan ini!
@@ -45,8 +57,28 @@ export default function Home() {
 
       {/* Image Banner */}
       <div className="mb-6">
-        <Image src="/images/wallpaper-itb.png" width={1200} height={400} alt="Concert Banner" className="rounded-lg shadow-md" />
-      </div>
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 0, disableOnInteraction: false }}
+        speed={4000} // Kecepatan transisi (ms)
+        loop={true}
+        slidesPerView={5} // Menampilkan 5 gambar sejajar
+        spaceBetween={20} // Jarak antar gambar
+        className="rounded-lg shadow-md"
+      >
+        {images.map((src, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              src={src}
+              width={300} // Atur ukuran gambar agar pas
+              height={200}
+              alt={`Slide ${index + 1}`}
+              className="rounded-lg"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
       
       {/* Cards */}
       <div className="grid grid-cols-3 gap-2 mb-6">
@@ -128,7 +160,7 @@ export default function Home() {
 
         {/* Pie Chart */}
         <div className="bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Distribusi Kategori Tiket</h2>
+          <h2 className="text-xl font-semibold mb-4">STAFF & KARYAWAN</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie data={pieData} cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#8884d8" dataKey="value">
@@ -146,28 +178,25 @@ export default function Home() {
         <div className="flex justify-between space-x-4">
           {/* Tabel 1 */}
           <div className="w-1/3">
-            <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">Daftar Pembelian Tiket</h2>
+            <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">Daftar Kamar EKONOMI & VIP</h2>
             <table className="w-full table-auto border-separate border-spacing-0">
               <thead>
                 <tr className="bg-gray-100 text-gray-700">
                   <th className="p-3 text-left">Nama</th>
-                  <th className="p-3 text-left">Konser</th>
-                  <th className="p-3 text-left">Jumlah Tiket</th>
-                  <th className="p-3 text-left">Total Harga</th>
+                  <th className="p-3 text-left">Lama Inap</th>
+                  <th className="p-3 text-left">Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-gray-50">
                   <td className="border-t p-3">Andi</td>
-                  <td className="border-t p-3">Coldplay</td>
                   <td className="border-t p-3">2</td>
-                  <td className="border-t p-3">Rp 5 Juta</td>
+                  <td className="border-t p-3">Check In</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="border-t p-3">Budi</td>
-                  <td className="border-t p-3">Taylor Swift</td>
                   <td className="border-t p-3">4</td>
-                  <td className="border-t p-3">Rp 10 Juta</td>
+                  <td className="border-t p-3">Check In</td>
                 </tr>
               </tbody>
             </table>
@@ -175,28 +204,25 @@ export default function Home() {
 
           {/* Tabel 2 */}
           <div className="w-1/3">
-            <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">Daftar Pembelian Tiket</h2>
+            <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">Daftar Kamar VVIP</h2>
             <table className="w-full table-auto border-separate border-spacing-0">
               <thead>
                 <tr className="bg-gray-100 text-gray-700">
                   <th className="p-3 text-left">Nama</th>
-                  <th className="p-3 text-left">Konser</th>
-                  <th className="p-3 text-left">Jumlah Tiket</th>
-                  <th className="p-3 text-left">Total Pendapatan</th>
+                  <th className="p-3 text-left">Lama Inap</th>
+                  <th className="p-3 text-left">Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-gray-50">
                   <td className="border-t p-3">Citra</td>
-                  <td className="border-t p-3">Ed Sheeran</td>
                   <td className="border-t p-3">3</td>
-                  <td className="border-t p-3">Rp 7.5 Juta</td>
+                  <td className="border-t p-3">Check In</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="border-t p-3">Dewi</td>
-                  <td className="border-t p-3">Bruno Mars</td>
                   <td className="border-t p-3">5</td>
-                  <td className="border-t p-3">Rp 12.5 Juta</td>
+                  <td className="border-t p-3">Check Out</td>
                 </tr>
               </tbody>
             </table>
@@ -204,28 +230,28 @@ export default function Home() {
 
           {/* Tabel 3 */}
           <div className="w-1/3">
-            <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">Daftar Pembelian Tiket</h2>
+            <h2 className="text-xl font-semibold mb-4 text-center text-gray-700">Daftar Transaksi</h2>
             <table className="w-full table-auto border-separate border-spacing-0">
               <thead>
                 <tr className="bg-gray-100 text-gray-700">
+                  <th className="p-3 text-left">ID Transaksi</th>
                   <th className="p-3 text-left">Nama</th>
-                  <th className="p-3 text-left">Konser</th>
+                  <th className="p-3 text-left">Tipe Kamar</th>
                   <th className="p-3 text-left">Status</th>
-                  <th className="p-3 text-left">Tanggal Pemesanan</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="hover:bg-gray-50">
-                  <td className="border-t p-3">Eko</td>
+                  <td className="border-t p-3">P21UD91</td>
                   <td className="border-t p-3">Adele</td>
-                  <td className="border-t p-3">Diproses</td>
-                  <td className="border-t p-3">2023-10-01</td>
+                  <td className="border-t p-3">Ekonomi</td>
+                  <td className="border-t p-3">Lunas</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
-                  <td className="border-t p-3">Fina</td>
+                  <td className="border-t p-3">O1DJI1A</td>
                   <td className="border-t p-3">Billie Eilish</td>
-                  <td className="border-t p-3">Selesai</td>
-                  <td className="border-t p-3">2023-10-05</td>
+                  <td className="border-t p-3">VVIP</td>
+                  <td className="border-t p-3">Pending</td>
                 </tr>
               </tbody>
             </table>
