@@ -106,7 +106,7 @@ export default function Home() {
           <CardContent className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-semibold text-gray-800 mb-2">TOTAL TAMU</h2>
-              <p className="text-3xl font-bold text-gray-600">1,520</p>
+              <p className="text-3xl font-bold text-gray-600">520</p>
             </div>
             <FaUserFriends className="text-blue-600 text-8xl" />
           </CardContent>
