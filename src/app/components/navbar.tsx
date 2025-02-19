@@ -10,13 +10,13 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md p-4 flex items-center justify-between">
       {/* Logo */}
-      <div className="text-2xl font-bold text-gray-800">HotelKu</div>
+      <div className="text-2xl font-bold text-gray-800">MyApp</div>
       
       {/* Navigation Menu */}
       <div className="flex items-center gap-6">
         <Link href="/dashboard" className="text-gray-800 hover:text-blue-500">Dashboard</Link>
         <Link href="/room" className="text-gray-800 hover:text-blue-500">Room</Link>
-        <Link href="/user" className="text-gray-800 hover:text-blue-500">User</Link>
+        <Link href="/users" className="text-gray-800 hover:text-blue-500">User</Link>
         
         {/* Dropdown Menu */}
         <div className="relative">
@@ -32,7 +32,6 @@ export default function Navbar() {
             </div>
           )}
         </div>
-        
         {/* Profile Picture */}
         <UserCircle size={50} className="text-gray-800" />
       </div>

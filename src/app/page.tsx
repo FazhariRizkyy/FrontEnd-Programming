@@ -33,10 +33,10 @@ const images = [
   "/images/banner-3.jpg",
   "/images/banner-4.jpg",
   "/images/banner-5.jpg",
-  "/images/banner-6.jpg", // Tambahkan lebih banyak gambar jika mau
+  "/images/banner-6.jpg",
 ];
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28"]; // Tambahkan ini!
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
 <ResponsiveContainer width="100%" height={300}>
   <PieChart>
@@ -48,38 +48,10 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28"]; // Tambahkan ini!
   </PieChart>
 </ResponsiveContainer>
 
-
 export default function Home() {
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      {/* Header */}
-      <header className="text-2xl font-bold mb-6">Dashboard HotelKu</header>
 
-      {/* Image Banner */}
-      <div className="mb-6">
-      <Swiper
-        modules={[Autoplay]}
-        autoplay={{ delay: 0, disableOnInteraction: false }}
-        speed={4000} // Kecepatan transisi (ms)
-        loop={true}
-        slidesPerView={5} // Menampilkan 5 gambar sejajar
-        spaceBetween={20} // Jarak antar gambar
-        className="rounded-lg shadow-md"
-      >
-        {images.map((src, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={src}
-              width={300} // Atur ukuran gambar agar pas
-              height={200}
-              alt={`Slide ${index + 1}`}
-              className="rounded-lg"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-      
       {/* Cards */}
       <div className="grid grid-cols-3 gap-2 mb-6">
         <Card>
@@ -142,6 +114,31 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Image Banner */}
+      <div className="mb-6">
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 0, disableOnInteraction: false }}
+        speed={4000} // Kecepatan transisi (ms)
+        loop={true}
+        slidesPerView={5} // Menampilkan 5 gambar sejajar
+        spaceBetween={20} // Jarak antar gambar
+        className="rounded-lg shadow-md"
+      >
+        {images.map((src, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              src={src}
+              width={300} // Atur ukuran gambar agar pas
+              height={200}
+              alt={`Slide ${index + 1}`}
+              className="rounded-lg"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
 
       {/* Chart Section - Menampilkan 2 Chart Sejajar */}
       <div className="grid grid-cols-2 gap-4 mb-6">
